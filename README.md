@@ -5,7 +5,10 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 
 [The backend of this project]()
 
-## techs used
+# Techs used
+<details open>
+    <summary>Programming languages & frameworks</summary>
+
 <img src="./public/logos/Typescript_logo.svg" alt="TypeScript" width="70" height="70">
 <img src="./public/logos/React_logo.svg" alt="React" width="70" height="70">
 <img src="./public/logos/HTML_logo.svg" alt="HTML" width="70" height="70">
@@ -13,6 +16,7 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 <img src="./public/logos/Bootstrap_logo.svg" alt="Bootstrap" width="70" height="70">
 <img src="./public/logos/Sass_logo.svg" alt="Sass" width="70" height="70">
 <img src="./public/logos/GraphQL_logo.svg" alt="GraphQL" width="70" height="70">
+</details>
 
 
 ## some background
