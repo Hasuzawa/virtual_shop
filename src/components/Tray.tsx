@@ -13,7 +13,7 @@ const Tray = (props: any) => {
                 open Tray
             </Button>
 
-            <Offcanvas show={show} placement="end" backdrop="false" onHide={handleClose} style={{top: "100px"}}>
+            <Offcanvas show={show} placement="end" backdrop={false} onHide={handleClose} style={{top: props.headerHeight}}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Shoppping cart</Offcanvas.Title>
                 </Offcanvas.Header>

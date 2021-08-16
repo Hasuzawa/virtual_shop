@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 
 //function Header(props: {headerHeight: string}): JSX.Element = React.forwardRef((props: { headerHeight: string}, ref) => {
-const Header = React.forwardRef((props, ref) => {
+const Header = React.forwardRef<any, any>((props, ref) => {
+
     return (
         <>
-        <Navbar bg="dark" variant="dark">
+        
+        <Navbar
+            bg="dark"
+            variant="dark"
+            ref={ref}
+            style={{height: (props.headerHeight ? props.headerHeight : "auto")}}
+        >
             <Navbar.Brand>Virtual Shop</Navbar.Brand>
             <Navbar.Toggle></Navbar.Toggle>
             <Navbar.Collapse>
@@ -18,18 +25,12 @@ const Header = React.forwardRef((props, ref) => {
                 </Nav>
 
             </Navbar.Collapse>
+            <button onClick={() => props.setHeaderHeight(props.headerHeight + 10)}>change height of header</button>
         </Navbar>
+        
     </>
 
     );
 });
 
-
-/* const Header = () => {
-    return (
-
-
-    );
-};
- */
 export default Header;
