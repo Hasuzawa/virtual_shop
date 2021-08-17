@@ -4,18 +4,20 @@ import './App.css';
 
 
 
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 
 import Header from "src/components/Header";
 import Tray from "src/components/Tray";
 
 import { MediaSize, useMediaSize } from "src/components/hooks";
 import { Product } from "src/components/classes";
+import ShopWindow from "src/components/ShopWindow";
+import { Footer } from "src/components/Footer";
 
 
 function App() {
   //array of object instance
-  const [ cartedProducts , setCartedProducts] = useState<Product[]>([]);
+  const [ cartedProducts, setCartedProducts] = useState<Product[]>([]);
 
   const [ isDragging, setIsDragging] = useState<boolean>(false);
 
@@ -42,13 +44,23 @@ function App() {
 
   return (
     <div className="App">
-      <Header ref={headerRef} headerHeight={headerHeight} setHeaderHeight={setHeaderHeight}/>
-      <Tray
+      <Row>
+        <Header ref={headerRef} headerHeight={headerHeight} setHeaderHeight={setHeaderHeight}/>
+      </Row>
+      <Row>
+        <ShopWindow />
+        <Tray
         headerHeight={headerHeight}
         cartedProducts={cartedProducts}
         setCartedProducts={setCartedProducts}
         isDragging={isDragging}
-      />
+        />
+      </Row>
+      <Row>
+        <Footer />
+      </Row>
+      
+
 
         <Button variant="primary">
           testing (no effect)

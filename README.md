@@ -38,13 +38,14 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 <li>
     In the last project I used JavaScript for React, but there was numerous issues such as lack of 
     enum, and unpredictable behaviour in function parameter. Therefore, I use TypeScript for this project.
-    I place focus on simplicity and clarity of structure, and do not aim to provide the most feature in this project
+    I place focus on simplicity and clarity of structure, and do not aim to provide the most feature in this project.
 </li>
 <li>
     I used more functional component and hook than the previous project. React does not really have inheritance so class method
-    is not reusable across component. 
+    is not reusable across component. Hooks however can.
 </li>
 <li>
+    The drag drop event 
 </li>
 <li>
 </li>

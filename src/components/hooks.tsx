@@ -1,6 +1,7 @@
 
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { useState, useEffect, useRef } from "react";
 
 enum MediaSize{
     large,
@@ -26,3 +27,22 @@ const useMediaSize = <none, MediaSize>() => {
 };
 
 export {useMediaSize};
+
+//hook to get ref element's dimension
+const useTargetDimension = () => {
+    const targetRef = useRef(null);
+    const [targetWidth, setTargetWidth] = useState<number>(0);
+    const [targetHeight, setTargetheight] = useState<number>(0);
+
+    //useEffect not needed?
+    useEffect( () => {
+
+    }, []);
+
+    useEffect( () => {
+
+    });
+
+    
+    return [targetWidth, targetHeight, targetRef];
+}
