@@ -3,8 +3,8 @@
 
 
 
-    .shopping_cart--heading{
-        font-size: 20px;
+    .h5.shopping_cart--heading{
+        font-size: 30px;
     }
 
     .shopping_cart--box{
@@ -14,6 +14,11 @@
         flex-direction: column;
 
         overflow-y: auto;
+    }
+
+    .shopping_cart--cashier{
+        flex: 0 0 auto;
+        padding: 16px;
     }
 
     .shopping_cart--buttons{

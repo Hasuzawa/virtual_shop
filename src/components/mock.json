@@ -1,0 +1,10 @@
+{
+    "0": {
+        "name": "chocolate",
+        "price": 7
+    },
+    "1": {
+        "name": "tea",
+        "price": 5
+    }
+}
