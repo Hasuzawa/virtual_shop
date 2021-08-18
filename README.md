@@ -36,7 +36,7 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 
 <ul>
 <li>
-    In the last project I used JavaScript for React, but there was numerous issues such as lack of 
+    In the last project I used JavaScript for React, but there were numerous issues such as lack of 
     enum, and unpredictable behaviour in function parameter. Therefore, I use TypeScript for this project.
     I place focus on simplicity and clarity of structure, and do not aim to provide the most feature in this project.
 </li>
@@ -45,7 +45,8 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
     is not reusable across component. Hooks however can.
 </li>
 <li>
-    The drag drop event 
+    The drag drop event. Drag drop event is a vulnerability because of potential cross-site dropping. In a real app a lot of sanitisation has to be done. I took another approach and 
+    make a class. An instance is dragged and only that instance will be processed in drop event. This will not prevent all abuse.
 </li>
 <li>
 </li>

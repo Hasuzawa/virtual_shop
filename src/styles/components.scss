@@ -35,11 +35,26 @@
     }
 }
 
-.center_popup{
+.popup_container{
     position: fixed;
-    left: 50%;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2048;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.center_popup{
+    max-width: 50%;
+    min-height: 200px;
+    max-height: 50%;
+
+    //transition: ;
 }
 
 @keyframes slide-in-from-below{

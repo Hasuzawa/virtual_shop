@@ -71,7 +71,7 @@ const Tray = (props: any) => {
                                         size="lg"
                                         className="shopping_cart--button"
                                         //onClick={ () => props.setCartedProducts([])}
-                                        onClick={ () => setIsShowingPopup(!isShowingPopup) }
+                                        onClick={ () => setIsShowingPopup(true) }
                                     >reset cart</Button>
                                 </Col>
                             </Row>
@@ -80,7 +80,10 @@ const Tray = (props: any) => {
 
                     </Offcanvas.Body>
                 </Offcanvas>
-                {isShowingPopup ? <ClearCart /> : null}
+
+                {/* popup components */}
+                
+                {isShowingPopup ? <ClearCart isShowingPopup={isShowingPopup} /> : null}
             </>
         );
     } else /*if (useMediaSize === MediaSize.middle)*/{
@@ -118,31 +121,33 @@ const Tray = (props: any) => {
 
 export default Tray;
 
-const ClearCart = () => {
+const ClearCart = (props: any) => {
     console.log("popup activated");
     return ReactDOM.createPortal(
-        <Alert
-            variant="warning"
-            className="center_popup"
-            dismissible
-        >
-            <Alert.Heading>Clear cart</Alert.Heading>
-            Delete everything in cart? This is irreversible.
+        <div className="popup_container">
+            <Alert
+                variant="warning"
+                className="center_popup"
+                dismissible
+            >
+                <Alert.Heading>Clear cart</Alert.Heading>
+                Delete everything in cart? This is irreversible.
 
-            <Button
-                variant="primary"
-            >
-                Yes, I want them gone.
-            </Button>
-            <Button
-                variant="secondary"
-            >
-                No.
-            </Button>
-            <Button>
-                do not show again
-            </Button>
-        </Alert>
+                <Button
+                    variant="primary"
+                >
+                    Yes, I want them gone.
+                </Button>
+                <Button
+                    variant="secondary"
+                >
+                    No.
+                </Button>
+                <Button onClick={ () => props.setIsShowingPopup(false) }>
+                    do not show again
+                </Button>
+            </Alert>
+        </div>
         ,
         document.getElementById("portal")!
     )
