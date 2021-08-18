@@ -5,9 +5,9 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 [The backend of this project]()
 
 ## This project features:
-
+[Features implemented in past projects]() are omitted for brevity.
 <ul>
-    <li>more advanced React features</li>
+    <li>more advanced React features: hooks, ref, portal</li>
     <li>more refined responsive design (3-phrases)</li>
     <li>drag & drop events</li>
     <li>async request to server</li>

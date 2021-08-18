@@ -29,20 +29,19 @@ const useMediaSize = <none, MediaSize>() => {
 export {useMediaSize};
 
 //hook to get ref element's dimension
-const useTargetDimension = () => {
-    const targetRef = useRef(null);
+const useTargetDimension = (): [number, number, any] => {
+    const targetRef = useRef<any>(null);
     const [targetWidth, setTargetWidth] = useState<number>(0);
     const [targetHeight, setTargetheight] = useState<number>(0);
 
-    //useEffect not needed?
     useEffect( () => {
-
-    }, []);
-
-    useEffect( () => {
-
+        console.log("useTargetDimension fired");
+        setTargetWidth(targetRef.current.offsetWidth);
+        setTargetheight(targetRef.current.offsetHeight);
     });
 
     
     return [targetWidth, targetHeight, targetRef];
 }
+
+export { useTargetDimension };

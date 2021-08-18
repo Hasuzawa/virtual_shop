@@ -1,6 +1,6 @@
 import React from "react";
 
-const ShopWindow = (props: any) => {
+const ShopWindow = (props: any): JSX.Element => {
 
 
 

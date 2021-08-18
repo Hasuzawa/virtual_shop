@@ -35,6 +35,18 @@
     }
 }
 
+.center_popup{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slide-in-from-below{
+    0%{}
+    100%{}
+}
+
 @media screen and (min-width: 1000px){
     body{
 

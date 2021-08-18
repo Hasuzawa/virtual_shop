@@ -12,6 +12,8 @@ class ProductCard extends Component{
 
 
     render(){
+
+        //every rendered draggable need a setDataTransfer
         return (
             <Card>
 

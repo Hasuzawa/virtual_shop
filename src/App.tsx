@@ -9,7 +9,7 @@ import { Button, Row, Col } from "react-bootstrap";
 import Header from "src/components/Header";
 import Tray from "src/components/Tray";
 
-import { MediaSize, useMediaSize } from "src/components/hooks";
+import { MediaSize, useMediaSize, useTargetDimension } from "src/components/hooks";
 import { Product } from "src/components/classes";
 import ShopWindow from "src/components/ShopWindow";
 import { Footer } from "src/components/Footer";
@@ -19,15 +19,22 @@ function App() {
   //array of object instance
   const [ cartedProducts, setCartedProducts] = useState<Product[]>([]);
 
+  //brower event status
   const [ isDragging, setIsDragging] = useState<boolean>(false);
+  const [ isShowingPopup, setIsShowingPopup] = useState<boolean>(false);
+
+  //locally storaged status
+
+
 
   //for monitoring height of <Header>
+  //const [headerWidth, headerHeight, headerRef] = useTargetDimension();
   const [ headerHeight, setHeaderHeight] = useState<number>(0);
   const headerRef = useRef<any>(null);
   useEffect(() => {
     console.log("App effect hook activated");
     setHeaderHeight(headerRef.current.offsetHeight);
-  }, [headerHeight]);
+  });
 
 
   //screen size indicator
@@ -54,6 +61,7 @@ function App() {
         cartedProducts={cartedProducts}
         setCartedProducts={setCartedProducts}
         isDragging={isDragging}
+        isShowingPopup={isShowingPopup}
         />
       </Row>
       <Row>
@@ -81,6 +89,10 @@ function App() {
           <span>The screen size is {screenSizeText}</span>
           
         </div>
+
+        {/* full-screen popups */}
+        
+
     </div>
   );
 }

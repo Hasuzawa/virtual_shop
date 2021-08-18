@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Offcanvas, Button, Container, Row, Col } from "react-bootstrap";
+import ReactDOM from "react-dom";
+import { Offcanvas, Button, Container, Row, Col, Alert } from "react-bootstrap";
 
 import { MediaSize, useMediaSize } from "src/components/hooks";
 
@@ -11,6 +12,9 @@ const Tray = (props: any) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleShowClose = () => setShow(!show);
+
+    type Popup = "checkout" | "clear";
+    const [ isShowingPopup, setIsShowingPopup] = useState<boolean>(false);
 
     useEffect( () => {
         if (props.isDragging){
@@ -62,7 +66,13 @@ const Tray = (props: any) => {
                                     <Button variant="success" size="lg" className="shopping_cart--button">checkout</Button>
                                 </Col>
                                 <Col>
-                                    <Button variant="danger" size="lg" className="shopping_cart--button">reset cart</Button>
+                                    <Button
+                                        variant="danger"
+                                        size="lg"
+                                        className="shopping_cart--button"
+                                        //onClick={ () => props.setCartedProducts([])}
+                                        onClick={ () => setIsShowingPopup(!isShowingPopup) }
+                                    >reset cart</Button>
                                 </Col>
                             </Row>
                         </div>
@@ -70,6 +80,7 @@ const Tray = (props: any) => {
 
                     </Offcanvas.Body>
                 </Offcanvas>
+                {isShowingPopup ? <ClearCart /> : null}
             </>
         );
     } else /*if (useMediaSize === MediaSize.middle)*/{
@@ -106,3 +117,33 @@ const Tray = (props: any) => {
 };
 
 export default Tray;
+
+const ClearCart = () => {
+    console.log("popup activated");
+    return ReactDOM.createPortal(
+        <Alert
+            variant="warning"
+            className="center_popup"
+            dismissible
+        >
+            <Alert.Heading>Clear cart</Alert.Heading>
+            Delete everything in cart? This is irreversible.
+
+            <Button
+                variant="primary"
+            >
+                Yes, I want them gone.
+            </Button>
+            <Button
+                variant="secondary"
+            >
+                No.
+            </Button>
+            <Button>
+                do not show again
+            </Button>
+        </Alert>
+        ,
+        document.getElementById("portal")!
+    )
+};
