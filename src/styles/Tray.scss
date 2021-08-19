@@ -50,16 +50,26 @@
 }
 
 .center_popup{
+    //min-width: px;    defined below
     max-width: 50%;
-    min-height: 200px;
+    //min-height: px;   defined below
     max-height: 50%;
+    animation-name: slide-in-from-below;
+    animation: slide-in-from-below 0.3s ease-out;
 
-    //transition: ;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup_reset_buttons{
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 auto;
 }
 
 @keyframes slide-in-from-below{
-    0%{}
-    100%{}
+    0%{transform: translateY(75vh);}
+    100%{transform: translateY(0);}
 }
 
 @media screen and (min-width: 1000px){
@@ -90,6 +100,11 @@
 
         .testing{
             color: red;
+        }
+
+        .center_popup{
+            min-width: 500px;
+            min-height: 200px;
         }
     }
 

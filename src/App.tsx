@@ -21,7 +21,7 @@ function App() {
 
   //brower event status
   const [ isDragging, setIsDragging] = useState<boolean>(false);
-  const [ isShowingPopup, setIsShowingPopup] = useState<boolean>(false);
+
 
   //locally storaged status
 
@@ -61,7 +61,6 @@ function App() {
         cartedProducts={cartedProducts}
         setCartedProducts={setCartedProducts}
         isDragging={isDragging}
-        isShowingPopup={isShowingPopup}
         />
       </Row>
       <Row>

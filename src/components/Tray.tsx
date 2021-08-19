@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { Offcanvas, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { Offcanvas, Button, Container, Row, Col, Alert, CloseButton } from "react-bootstrap";
 
 import { MediaSize, useMediaSize } from "src/components/hooks";
 
-import "src/styles/components.scss";
+import "src/styles/Tray.scss";
+import { isWhiteSpaceSingleLine } from "typescript";
 
 const Tray = (props: any) => {
     const [show, setShow] = useState<boolean>(false);
@@ -12,6 +13,11 @@ const Tray = (props: any) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleShowClose = () => setShow(!show);
+
+
+    //remembered state
+    const [noResetWarning, setNoResetWarning] = useState<boolean>(false);
+
 
     type Popup = "checkout" | "clear";
     const [ isShowingPopup, setIsShowingPopup] = useState<boolean>(false);
@@ -71,7 +77,13 @@ const Tray = (props: any) => {
                                         size="lg"
                                         className="shopping_cart--button"
                                         //onClick={ () => props.setCartedProducts([])}
-                                        onClick={ () => setIsShowingPopup(true) }
+                                        onClick={ () => {
+                                            if (noResetWarning){
+                                                props.setCartedProducts([]);
+                                            } else {
+                                                setIsShowingPopup(true);
+                                            }
+                                        }}
                                     >reset cart</Button>
                                 </Col>
                             </Row>
@@ -83,7 +95,13 @@ const Tray = (props: any) => {
 
                 {/* popup components */}
                 
-                {isShowingPopup ? <ClearCart isShowingPopup={isShowingPopup} /> : null}
+                {isShowingPopup ?
+                    <ResetCart
+                        setIsShowingPopup={setIsShowingPopup}
+                        setCartedProducts={props.setCartedProducts}
+                        setNoResetWarning={setNoResetWarning}
+                    /> : null
+                }
             </>
         );
     } else /*if (useMediaSize === MediaSize.middle)*/{
@@ -121,31 +139,46 @@ const Tray = (props: any) => {
 
 export default Tray;
 
-const ClearCart = (props: any) => {
+const ResetCart = (props: any): React.ReactPortal => {
     console.log("popup activated");
     return ReactDOM.createPortal(
         <div className="popup_container">
             <Alert
                 variant="warning"
                 className="center_popup"
-                dismissible
             >
-                <Alert.Heading>Clear cart</Alert.Heading>
-                Delete everything in cart? This is irreversible.
+                <div style={{display: "flex", justifyContent: "space-between", flex: "0 0 auto"}}>
+                    <Alert.Heading style={{display: "inline-block"}}>Reset Cart</Alert.Heading>
+                    <CloseButton onClick={ () => props.setIsShowingPopup(false)}/>
+                </div>
 
-                <Button
-                    variant="primary"
-                >
-                    Yes, I want them gone.
-                </Button>
-                <Button
-                    variant="secondary"
-                >
-                    No.
-                </Button>
-                <Button onClick={ () => props.setIsShowingPopup(false) }>
-                    do not show again
-                </Button>
+                <p style={{flex: "1 0 auto"}}>
+                    Remove everything in cart? This is <b>irreversible</b>.
+                </p>
+                <div className="popup_reset_buttons">
+                    <Button
+                        variant="primary"
+                        onClick={ () => {
+                            props.setCartedProducts([]);
+                            props.setIsShowingPopup(false);
+                        }}
+                    >
+                        Remove
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        onClick={ () => props.setIsShowingPopup(false)}
+                    >
+                        Keep
+                    </Button>
+                    <Button
+                        type="checkbox"
+                        onClick={ () => props.setNoResetWarning(true)}
+                    >
+                        do not show again
+                    </Button>
+
+                </div>
             </Alert>
         </div>
         ,
