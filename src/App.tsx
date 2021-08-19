@@ -23,8 +23,6 @@ function App() {
   const [ isDragging, setIsDragging] = useState<boolean>(false);
 
 
-  //locally storaged status
-
 
 
   //for monitoring height of <Header>
@@ -55,13 +53,21 @@ function App() {
         <Header ref={headerRef} headerHeight={headerHeight} setHeaderHeight={setHeaderHeight}/>
       </Row>
       <Row>
-        <ShopWindow />
-        <Tray
-        headerHeight={headerHeight}
-        cartedProducts={cartedProducts}
-        setCartedProducts={setCartedProducts}
-        isDragging={isDragging}
-        />
+        <Col>
+          <span>this is sort area</span>
+        </Col>
+        <Col>
+          <ShopWindow />
+        </Col>
+        <Col>
+          <Tray
+          headerHeight={headerHeight}
+          cartedProducts={cartedProducts}
+          setCartedProducts={setCartedProducts}
+          isDragging={isDragging}
+          />
+        </Col>
+
       </Row>
       <Row>
         <Footer />
@@ -89,8 +95,7 @@ function App() {
           
         </div>
 
-        {/* full-screen popups */}
-        
+
 
     </div>
   );

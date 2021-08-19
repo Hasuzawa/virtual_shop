@@ -21,11 +21,11 @@ const Header = React.forwardRef<any, any>((props, ref) => {
                 <Nav>
                     <Nav.Link>Home</Nav.Link>
                     <Nav.Link>Products</Nav.Link>
-                    <Nav.Link>Wish List</Nav.Link>
+                    <Nav.Link>Itinerary</Nav.Link>
                 </Nav>
-
+                <button onClick={ () => props.setHeaderHeight(props.headerHeight + 10) }>change height of header</button>
             </Navbar.Collapse>
-            <button onClick={() => props.setHeaderHeight(props.headerHeight + 10)}>change height of header</button>
+            
         </Navbar>
         
     </>

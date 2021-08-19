@@ -5,7 +5,6 @@ import { Offcanvas, Button, Container, Row, Col, Alert, CloseButton } from "reac
 import { MediaSize, useMediaSize } from "src/components/hooks";
 
 import "src/styles/Tray.scss";
-import { isWhiteSpaceSingleLine } from "typescript";
 
 const Tray = (props: any) => {
     const [show, setShow] = useState<boolean>(false);
@@ -172,6 +171,7 @@ const ResetCart = (props: any): React.ReactPortal => {
                         Keep
                     </Button>
                     <Button
+                        variant="outline-primary"
                         type="checkbox"
                         onClick={ () => props.setNoResetWarning(true)}
                     >

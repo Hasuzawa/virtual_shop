@@ -25,9 +25,8 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 <img src="./public/logos/Bootstrap_logo.svg" alt="Bootstrap" width="80" height="70">
 <img src="./public/logos/Sass_logo.svg" alt="Sass" width="70" height="70">
 <img src="./public/logos/GraphQL_logo.svg" alt="GraphQL" width="70" height="70">
+<img src="./public/logos/Apollo_logo.svg" alt="Apollo" width="70" height="70">
 </details>
-
-<hr>
 
 ## some technical background
 <details open>
@@ -46,9 +45,11 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 </li>
 <li>
     The drag drop event. Drag drop event is a vulnerability because of potential cross-site dropping. In a real app a lot of sanitisation has to be done. I took another approach and 
-    make a class. An instance is dragged and only that instance will be processed in drop event. This will not prevent all abuse.
+    make a class. An instance is dragged and only that instance will be processed in drop event. This will not prevent all abuse but that is the
+    job of backend, not frontend.
 </li>
 <li>
+    GraphQL and Apollo API. This is one of the major motive of this project.
 </li>
 </ul>
 </details>
