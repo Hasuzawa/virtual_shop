@@ -1,8 +1,8 @@
 # Project: Virtual Shop
 This is the frontend of a virtual shop project. There is <b>no</b> actual transaction involving real money.
 
-[The website of this project]()<br>
-[The backend of this project]()
+[The deployed version]()<br>
+[The backend of this project](https://github.com/Hasuzawa/virtual_shop_backend)
 
 ## This project features:
 [Features implemented in past projects]() are omitted for brevity.
@@ -25,13 +25,12 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 <img src="./public/logos/Bootstrap_logo.svg" alt="Bootstrap" width="80" height="70">
 <img src="./public/logos/Sass_logo.svg" alt="Sass" width="70" height="70">
 <img src="./public/logos/GraphQL_logo.svg" alt="GraphQL" width="70" height="70">
-<img src="./public/logos/Apollo_logo.svg" alt="Apollo" width="70" height="70">
+<img src="./public/logos/Apollo_logo.svg" alt="Apollo" width="100">
 </details>
 
 ## some technical background
-<details open>
+<details close>
 <summary>design choice</summary>
-
 
 <ul>
 <li>
