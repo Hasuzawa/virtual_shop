@@ -25,7 +25,7 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
 <img src="./public/logos/Bootstrap_logo.svg" alt="Bootstrap" width="80" height="70">
 <img src="./public/logos/Sass_logo.svg" alt="Sass" width="70" height="70">
 <img src="./public/logos/GraphQL_logo.svg" alt="GraphQL" width="70" height="70">
-<img src="./public/logos/Apollo_logo.svg" alt="Apollo" width="100">
+<img src="./public/logos/Apollo_logo.svg" alt="Apollo" width="130">
 </details>
 
 ## some technical background
@@ -48,10 +48,12 @@ This is the frontend of a virtual shop project. There is <b>no</b> actual transa
     job of backend, not frontend.
 </li>
 <li>
-    GraphQL and Apollo API. This is one of the major motive of this project.
+    GraphQL and Apollo API. This is one of the major motive of this project. Rest API is a more
+    mature technology but it is time to move on to newer
+    frameworks.
+</li>
+<li>
+    I am in fact using both Windows and MacOS and there is subtle differences of the website even on the same browser.
 </li>
 </ul>
 </details>
-
-
-
